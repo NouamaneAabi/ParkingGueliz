@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.parkingmanager.controller.AbonnesController" spacing="20" style="-fx-padding: 20;">
+    <children>
+        <Label text="Gestion des Abonnés" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        
+        <VBox spacing="15" style="-fx-background-color: #e3f2fd; -fx-padding: 20; -fx-background-radius: 5;">
+            <children>
+                <Label text="Nouvel Abonnement" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                
+                <HBox spacing="15">
+                    <children>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Immatriculation (format: AB-123-CD):" />
+                                <TextField fx:id="immatriculationField" promptText="AB-123-CD" />
+                            </children>
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Propriétaire:" />
+                                <TextField fx:id="proprietaireField" promptText="Nom du propriétaire" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                
+                <HBox spacing="15">
+                    <children>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Date de début:" />
+                                <DatePicker fx:id="dateDebutPicker" />
+                            </children>
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Date de fin:" />
+                                <DatePicker fx:id="dateFinPicker" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                
+                <Button text="Créer l'Abonnement" onAction="#creerAbonnement" style="-fx-background-color: #2196f3; -fx-text-fill: white; -fx-font-size: 14px;" />
+            </children>
+        </VBox>
+        
+        <Label fx:id="messageLabel" text="" style="-fx-font-size: 14px;" />
+        
+        <Label text="Liste des Abonnés" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+        <TableView fx:id="abonnesTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="immatriculationColumn" text="Immatriculation" prefWidth="150" />
+                <TableColumn fx:id="proprietaireColumn" text="Propriétaire" prefWidth="200" />
+                <TableColumn fx:id="dateDebutColumn" text="Date Début" prefWidth="120" />
+                <TableColumn fx:id="dateFinColumn" text="Date Fin" prefWidth="120" />
+                <TableColumn fx:id="statutColumn" text="Statut" prefWidth="100" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>
+
+
+
+
+

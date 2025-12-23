@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.parkingmanager.controller.HistoriqueController" 
+      spacing="20" style="-fx-padding: 30;" stylesheets="@styles.css">
+    <children>
+        <Label text="Historique des Transactions" styleClass="header-label" />
+        
+        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+            <children>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Liste de tous les tickets enregistrés" styleClass="card-title" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="Actualiser" onAction="#refresh" styleClass="button, btn-refresh" />
+                </HBox>
+                
+                <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="immatriculationColumn" text="Véhicule" prefWidth="120" />
+                        <TableColumn fx:id="proprietaireColumn" text="Propriétaire" prefWidth="150" />
+                        <TableColumn fx:id="placeColumn" text="Place" prefWidth="80" />
+                        <TableColumn fx:id="entreeColumn" text="Date d'entrée" prefWidth="180" />
+                        <TableColumn fx:id="sortieColumn" text="Date de sortie" prefWidth="180" />
+                        <TableColumn fx:id="montantColumn" text="Montant (€)" prefWidth="100" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </VBox>
+        
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Fermer" onAction="#fermer" styleClass="button, btn-settings" />
+        </HBox>
+    </children>
+</VBox>

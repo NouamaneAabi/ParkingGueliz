@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.parkingmanager.controller.LoginController" 
+      alignment="CENTER" spacing="40" style="-fx-background-color: #2c3e50; -fx-padding: 50;" stylesheets="@styles.css">
+    <children>
+        <VBox alignment="CENTER" spacing="10">
+            <children>
+                <Label text="Bienvenue chez" style="-fx-text-fill: #bdc3c7; -fx-font-size: 20px;" />
+                <Label text="Gueliz Parking" style="-fx-text-fill: white; -fx-font-size: 48px; -fx-font-weight: bold;" />
+            </children>
+        </VBox>
+        
+        <HBox spacing="40" alignment="CENTER">
+            <children>
+                <!-- Option Admin -->
+                <VBox spacing="20" alignment="CENTER" styleClass="card" prefWidth="300" style="-fx-cursor: hand;" onMouseClicked="#selectionnerAdmin">
+                    <children>
+                        <Label text="ADMINISTRATEUR" styleClass="card-title" />
+                        <Label text="Gérer les places, les abonnés et les recettes du parking." 
+                               wrapText="true" textAlignment="CENTER" styleClass="stat-label" />
+                        <Button text="Accès Gestion" onAction="#selectionnerAdmin" styleClass="button, btn-subscribers" maxWidth="Infinity" />
+                    </children>
+                </VBox>
+                
+                <!-- Option Client -->
+                <VBox spacing="20" alignment="CENTER" styleClass="card" prefWidth="300" style="-fx-cursor: hand;" onMouseClicked="#selectionnerClient">
+                    <children>
+                        <Label text="CLIENT" styleClass="card-title" />
+                        <Label text="Payer mon ticket de stationnement en toute autonomie." 
+                               wrapText="true" textAlignment="CENTER" styleClass="stat-label" />
+                        <Button text="Borne de Paiement" onAction="#selectionnerClient" styleClass="button, btn-client" maxWidth="Infinity" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        
+        <Label text="Réalisé Par: Amine et Nouamane" style="-fx-text-fill: #7f8c8d; -fx-font-size: 12px;" />
+    </children>
+</VBox>

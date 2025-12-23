@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.parkingmanager.controller.ParametresController" 
+      spacing="20" style="-fx-padding: 30;" stylesheets="@styles.css">
+    <children>
+        <Label text="Paramètres du Parking" styleClass="header-label" />
+        
+        <VBox styleClass="card" spacing="15">
+            <children>
+                <Label text="Configuration des Tarifs" styleClass="card-title" />
+                
+                <GridPane hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="150" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <children>
+                        <Label text="Tarif Horaire (€) :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="tarifHoraireField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label text="Tarif Minimum (€) :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="tarifMinimumField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                
+                <Label text="Note: Ces tarifs seront appliqués aux futurs calculs de sortie." style="-fx-font-style: italic; -fx-text-fill: #7f8c8d;" />
+            </children>
+        </VBox>
+        
+        <HBox spacing="15" alignment="CENTER_RIGHT">
+            <Button text="Annuler" onAction="#annuler" styleClass="button, btn-refresh" />
+            <Button text="Enregistrer" onAction="#enregistrer" styleClass="button, btn-entry" />
+        </HBox>
+    </children>
+</VBox>

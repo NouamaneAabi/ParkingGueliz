@@ -1,0 +1,57 @@
+USE parking_db;
+
+-- Supprimer les contraintes FK pointant vers 'vehicules' (si présentes)
+SET @drop_fks = (
+  SELECT GROUP_CONCAT(CONCAT('ALTER TABLE `',TABLE_NAME,'` DROP FOREIGN KEY `',CONSTRAINT_NAME,'`;') SEPARATOR ' ')
+  FROM information_schema.KEY_COLUMN_USAGE
+  WHERE REFERENCED_TABLE_NAME='vehicules' AND TABLE_SCHEMA=DATABASE()
+);
+
+-- Exécuter suppression des FK si nécessaire
+SET @s = IFNULL(@drop_fks, 'SELECT 1');
+PREPARE stmt FROM @s;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Supprimer les tables non désirées
+DROP TABLE IF EXISTS paiements;
+DROP TABLE IF EXISTS abonnes;
+DROP TABLE IF EXISTS vehicules;
+
+-- Recréer les tables proprement
+CREATE TABLE IF NOT EXISTS vehicules (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    immatriculation VARCHAR(20) NOT NULL UNIQUE,
+    proprietaire VARCHAR(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS abonnes (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    dateDebut DATE NOT NULL,
+    dateFin DATE NOT NULL,
+    vehicule_id BIGINT NOT NULL UNIQUE,
+    FOREIGN KEY (vehicule_id) REFERENCES vehicules(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS paiements (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    montant DOUBLE NOT NULL,
+    date TIMESTAMP NOT NULL,
+    ticket_id BIGINT NOT NULL,
+    FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- S'assurer que la colonne 'statut' existe dans 'places'
+ALTER TABLE places ADD COLUMN IF NOT EXISTS statut VARCHAR(20) NOT NULL DEFAULT 'LIBRE';
+
+-- Recréer la contrainte FK de tickets vers vehicules si manquante
+-- Vérifier si FK existe
+SELECT COUNT(*) INTO @fk_exists FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='tickets' AND REFERENCED_TABLE_NAME='vehicules';
+
+SET @sql = IF(@fk_exists = 0, 'ALTER TABLE tickets ADD CONSTRAINT fk_tickets_vehicule FOREIGN KEY (vehicule_id) REFERENCES vehicules(id);', 'SELECT 1');
+PREPARE stmt2 FROM @sql;
+EXECUTE stmt2;
+DEALLOCATE PREPARE stmt2;
+
+-- Afficher tables
+SHOW TABLES;

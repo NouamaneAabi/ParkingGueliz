@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.parkingmanager.controller.EntreeSortieController" spacing="20" style="-fx-padding: 20;">
+    <children>
+        <Label text="Gestion Entrée/Sortie" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        
+        <HBox spacing="30" VBox.vgrow="ALWAYS">
+            <children>
+                <!-- Section Entrée -->
+                <VBox spacing="15" style="-fx-background-color: #e8f5e9; -fx-padding: 20; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Enregistrer une Entrée" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                        
+                        <Label text="Immatriculation (format: AB-123-CD):" />
+                        <TextField fx:id="immatriculationEntreeField" promptText="AB-123-CD" />
+                        
+                        <Label text="Propriétaire:" />
+                        <TextField fx:id="proprietaireField" promptText="Nom du propriétaire" />
+                        
+                        <Label text="Place:" />
+                        <ComboBox fx:id="placeComboBox" promptText="Sélectionner une place" />
+                        
+                        <Button text="Enregistrer l'Entrée" onAction="#enregistrerEntree" style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-size: 14px;" />
+                    </children>
+                </VBox>
+                
+                <!-- Section Sortie -->
+                <VBox spacing="15" style="-fx-background-color: #fff3e0; -fx-padding: 20; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Enregistrer une Sortie" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                        
+                        <Label text="Immatriculation:" />
+                        <TextField fx:id="immatriculationSortieField" promptText="AB-123-CD" />
+                        
+                        <Label fx:id="montantLabel" text="" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #f57c00;" />
+                        
+                        <Button text="Enregistrer la Sortie" onAction="#enregistrerSortie" style="-fx-background-color: #ff9800; -fx-text-fill: white; -fx-font-size: 14px;" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        
+        <Label fx:id="messageLabel" text="" style="-fx-font-size: 14px;" />
+    </children>
+</VBox>
+
+
+
+
+

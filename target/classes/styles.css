@@ -1,0 +1,144 @@
+/* Main Application Theme */
+.root {
+    -fx-background-color: #f4f7f6;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.header-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+/* Statistics Cards */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-padding: 0 0 10 0;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.stat-value {
+    -fx-font-weight: bold;
+}
+
+.stat-occupation {
+    -fx-font-size: 24px;
+    -fx-text-fill: #3498db;
+}
+
+.stat-free {
+    -fx-font-size: 20px;
+    -fx-text-fill: #2ecc71;
+}
+
+.stat-occupied {
+    -fx-font-size: 20px;
+    -fx-text-fill: #e74c3c;
+}
+
+/* Buttons */
+.button {
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8, 0, 0, 3);
+}
+
+.btn-entry {
+    -fx-background-color: #2ecc71;
+}
+.btn-entry:hover {
+    -fx-background-color: #27ae60;
+}
+
+.btn-subscribers {
+    -fx-background-color: #3498db;
+}
+.btn-subscribers:hover {
+    -fx-background-color: #2980b9;
+}
+
+.btn-revenue {
+    -fx-background-color: #f1c40f;
+}
+.btn-revenue:hover {
+    -fx-background-color: #f39c12;
+}
+
+.btn-refresh {
+    -fx-background-color: #95a5a6;
+}
+.btn-refresh:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.btn-client {
+    -fx-background-color: #ff5722;
+}
+.btn-client:hover {
+    -fx-background-color: #e64a19;
+}
+
+.btn-settings {
+    -fx-background-color: #34495e;
+}
+.btn-settings:hover {
+    -fx-background-color: #2c3e50;
+}
+
+.btn-history {
+    -fx-background-color: #9b59b6;
+}
+.btn-history:hover {
+    -fx-background-color: #8e44ad;
+}
+
+/* Table View */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5 5 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #3498db;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #fcfcfc;
+}
