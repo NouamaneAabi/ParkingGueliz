@@ -88,6 +88,8 @@ Le montant est calculé selon la durée de stationnement :
 - Hibernate gère automatiquement la création des tables (mode `update`)
 - Les abonnements sont vérifiés à chaque sortie
 - L'historique des tickets et paiements est conservé
+Images De l application GuelizParking
+<img width="929" height="648" alt="image" src="https://github.com/user-attachments/assets/41faa73c-d8bf-4800-bf67-7ec1ff13807a" />
 
 
 
