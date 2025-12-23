@@ -90,6 +90,15 @@ Le montant est calculé selon la durée de stationnement :
 - L'historique des tickets et paiements est conservé
 Images De l application GuelizParking
 <img width="929" height="648" alt="image" src="https://github.com/user-attachments/assets/41faa73c-d8bf-4800-bf67-7ec1ff13807a" />
+<img width="945" height="686" alt="image" src="https://github.com/user-attachments/assets/ee2ab272-7aa4-48af-9b05-e13cd1b82881" />
+<img width="709" height="632" alt="image" src="https://github.com/user-attachments/assets/d23e0c2d-9639-42ca-826a-d2671c519034" />
+<img width="798" height="655" alt="image" src="https://github.com/user-attachments/assets/e6750544-51e6-49bf-881f-f858c5cc4bfb" />
+<img width="928" height="686" alt="image" src="https://github.com/user-attachments/assets/04379100-e197-4fbd-bdae-b290eff2801f" />
+
+
+
+
+
 
 
 
